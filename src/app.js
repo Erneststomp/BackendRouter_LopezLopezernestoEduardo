@@ -11,15 +11,3 @@ app.get('/',(req,res)=>{
     res.send("<h1>Bienvenido a Express</h1>")
 
 })
-
-
-
-// app.get('/user',(req,res)=>{
-//     res.send({users})
-// })
-
-// app.get('/user/:userId',(req,res)=>{
-//     console.log(req.params)
-//     let id=req.params.userId
-//     res.send(users[id-1])
-// })

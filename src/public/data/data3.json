@@ -1,123 +1,141 @@
-
 [
 	{
 		"id": 1,
-		"nombre": "Rick Sanchez",
-		"estado": "Alive",
-		"especie": "Human"
+		"title": "Rick Sanchez",
+		"price": 121,
+		"especie": "Human",
+		"thumbnail": " "
 	},
 	{
 		"id": 2,
-		"nombre": "Morty Smith",
-		"estado": "Alive",
-		"especie": "Human"
+		"title": "chanchitofeliz",
+		"price": 120,
+		"especie": "Human",
+		"thumbnail": " "
 	},
 	{
 		"id": 3,
-		"nombre": "Summer Smith",
-		"estado": "Alive",
-		"especie": "Human"
+		"title": "Summer Smith",
+		"price": 123,
+		"especie": "Human",
+		"thumbnail": " "
 	},
 	{
 		"id": 4,
-		"nombre": "Beth Smith",
-		"estado": "Alive",
-		"especie": "Human"
+		"title": "Beth Smith",
+		"price": 142,
+		"especie": "Human",
+		"thumbnail": " "
 	},
 	{
 		"id": 5,
-		"nombre": "Jerry Smith",
-		"estado": "Alive",
-		"especie": "Human"
+		"title": "Jerry Smith",
+		"price": 152,
+		"especie": "Human",
+		"thumbnail": " "
 	},
 	{
 		"id": 6,
-		"nombre": "Abadango Cluster Princess",
-		"estado": "Alive",
-		"especie": "Alien"
+		"title": "Abadango Cluster Princess",
+		"price": 162,
+		"especie": "Alien",
+		"thumbnail": " "
 	},
 	{
 		"id": 7,
-		"nombre": "Abradolf Lincler",
-		"estado": "unknown",
-		"especie": "Human"
+		"title": "Abradolf Lincler",
+		"price": 34456,
+		"especie": "Human",
+		"thumbnail": " "
 	},
 	{
 		"id": 8,
-		"nombre": "Adjudicator Rick",
-		"estado": "Dead",
-		"especie": "Human"
+		"title": "Adjudicator Rick",
+		"price": 343,
+		"especie": "Human",
+		"thumbnail": " "
 	},
 	{
 		"id": 9,
-		"nombre": "Agency Director",
-		"estado": "Dead",
-		"especie": "Human"
+		"title": "Agency Director",
+		"price": 45,
+		"especie": "Human",
+		"thumbnail": " "
 	},
 	{
 		"id": 10,
-		"nombre": "Alan Rails",
-		"estado": "Dead",
-		"especie": "Human"
+		"title": "Alan Rails",
+		"price": 65,
+		"especie": "Human",
+		"thumbnail": " "
 	},
 	{
 		"id": 11,
-		"nombre": "Albert Einstein",
-		"estado": "Dead",
-		"especie": "Human"
+		"title": "Albert Einstein",
+		"price": 76,
+		"especie": "Human",
+		"thumbnail": " "
 	},
 	{
 		"id": 12,
-		"nombre": "Alexander",
-		"estado": "Dead",
-		"especie": "Human"
+		"title": "Alexander",
+		"price": 43,
+		"especie": "Human",
+		"thumbnail": " "
 	},
 	{
 		"id": 13,
-		"nombre": "Alien Googah",
-		"estado": "unknown",
-		"especie": "Alien"
+		"title": "Alien Googah",
+		"price": 34,
+		"especie": "Alien",
+		"thumbnail": " "
 	},
 	{
 		"id": 14,
-		"nombre": "Alien Morty",
-		"estado": "unknown",
-		"especie": "Alien"
+		"title": "Alien Morty",
+		"price": 54,
+		"especie": "Alien",
+		"thumbnail": " "
 	},
 	{
 		"id": 15,
-		"nombre": "Alien Rick",
-		"estado": "unknown",
-		"especie": "Alien"
+		"title": "Alien Rick",
+		"price": 45,
+		"especie": "Alien",
+		"thumbnail": " "
 	},
 	{
 		"id": 16,
-		"nombre": "Amish Cyborg",
-		"estado": "Dead",
-		"especie": "Alien"
+		"title": "Amish Cyborg",
+		"price": 45,
+		"especie": "Alien",
+		"thumbnail": " "
 	},
 	{
 		"id": 17,
-		"nombre": "Annie",
-		"estado": "Alive",
-		"especie": "Human"
+		"title": "Annie",
+		"price": 12,
+		"especie": "Human",
+		"thumbnail": " "
 	},
 	{
 		"id": 18,
-		"nombre": "Antenna Morty",
-		"estado": "Alive",
-		"especie": "Human"
+		"title": "Antenna Morty",
+		"price": 12,
+		"especie": "Human",
+		"thumbnail": " "
 	},
 	{
 		"id": 19,
-		"nombre": "Antenna Rick",
-		"estado": "unknown",
-		"especie": "Human"
+		"title": "Antenna Rick",
+		"price": 765,
+		"especie": "Human",
+		"thumbnail": " "
 	},
 	{
+		"title": "chanchitofeliz",
 		"id": 20,
-		"nombre": "Ants in my Eyes Johnson",
-		"estado": "unknown",
-		"especie": "Human"
+		"price": 120,
+		"thumbnail": ""
 	}
 ]

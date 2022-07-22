@@ -3,14 +3,13 @@ import { Characters } from '../public/data/manager.js';
 const Contenedor = new Characters();
 
 const router=Router();
+let allCharacters = await Contenedor.getAll()
 
-    router.get('/characters', async (req, res) => {
-        const allCharacters = await Contenedor.getAll()
+    router.get('/productos', async (req, res) => {
         res.send(allCharacters)
     })
     
-    router.get('/character/:id', async (req, res) => {
-        const allCharacters = await Contenedor.getAll()
+    router.get('/productos/:id', async (req, res) => {
         let idData=parseInt(req.params.id);
         if (isNaN(idData))return res.status(400).send("Debe ingresar un numero")
         if(parseInt(idData)<1||parseInt(idData)>allCharacters.length) return res.status(400).send("No se puede encontrar la palabra deseada")
@@ -24,66 +23,65 @@ const router=Router();
 
     })  
 
-let sentence = 'Hola mundo como estan'
-router.get('/frase',(req,res)=>{
-    res.send({sentence})
-})
+    router.post('/productos',(req,res)=>{
+        let newTitle  = req.body.title
+        let newPrice = req.body.price
+        let ids = allCharacters.map(object => {
+            return object.id;
+          });
+          let newId = Math.max(...ids)+1;
+          let newObject={title:newTitle,id:newId,price:newPrice,thumbnail:''}
+          console.log(newObject)
+          allCharacters.push(newObject)
+          Contenedor.SaveCharacter(newObject)
+          console.log(allCharacters)
 
-router.get('/letras/:num',(req,res)=>{
-    if (isNaN(req.params.num))return res.status(400).send("Debe ingresar un numero")
-    if(parseInt(req.params.num)<1||parseInt(req.params.num)>sentence.length) return res.status(400).send("No se puede encontrar el caracter deseado")
-    let num =parseInt(req.params.num)
-    res.send({letter:sentence.charAt(num-1)})
-})
-router.get('/palabras/:pos',(req,res)=>{
-    if (isNaN(req.params.pos))return res.status(400).send("Debe ingresar un numero")
-    let newArray=sentence.split(" ")
-    console.log(newArray.length)
-    if(parseInt(req.params.pos)<1||parseInt(req.params.pos)>newArray.length) return res.status(400).send("No se puede encontrar la palabra deseada")
-    let pos =parseInt(req.params.pos)
-    res.send({Word:newArray[pos-1]})
-})
+        res.send({title:newTitle,id:newId,price:newPrice})
+    })
 
+    
+    router.put('/productos/:pos',(req,res)=>{
+        if (isNaN(req.params.pos))return res.status(400).send("Debe ingresar un id numerico")
+        let ids = allCharacters.map(object => {
+            return object.id;
+          });
+          let newId = Math.max(...ids);
 
-router.post('/palabra',(req,res)=>{
-    let newWord  = req.body.papa
-    console.log(newWord)
-    res.send(newWord)
-    sentence=sentence.concat(` ${newWord}`)
-    console.log(sentence)
+        if(parseInt(req.params.pos)<1||parseInt(req.params.pos)>newId) return res.status(400).send("El id que solicita no se encuentra registrado")
+        let newTitle  = req.body.title
+        let newPrice = req.body.price
+        
+        for (const obj of allCharacters) {
+            if (obj.id === parseInt(req.params.pos)) {
+              obj.title = newTitle;
+              obj.price = newPrice;
+          
+              break;
+        }}
+        console.log(allCharacters)
+        Contenedor.SaveCharacter1(allCharacters)
+        res.send({title:newTitle,price:newPrice})
 
-})
+    
+    })
+    
+    router.delete('/productos/:pos',(req,res)=>{
+        let ids = allCharacters.map(object => {
+            return object.id;
+          });
+          let newId = Math.max(...ids);
 
+        if(parseInt(req.params.pos)<1||parseInt(req.params.pos)>newId) return res.status(400).send("El id que solicita no se encuentra registrado")
+        let newObject = allCharacters.filter(data => data.id != parseInt(req.params.pos));
+        console.log(newObject);
+        allCharacters=newObject;
+        console.log(allCharacters)
+        res.send(allCharacters)
+          
+        Contenedor.SaveCharacter1(allCharacters)
+    })
+    
 
-router.put('/palabra/:pos',(req,res)=>{
-    let newWord  = req.body.papa
-    if (isNaN(req.params.pos))return res.status(400).send("Debe ingresar un numero")
-    let newArray=sentence.split(" ")
-    if(parseInt(req.params.pos)<1||parseInt(req.params.pos)>newArray.length) return res.status(400).send("No se puede encontrar la palabra deseada")
- 
-    let pos =parseInt(req.params.pos-1)
-    let oldWord=newArray[pos]
-    newArray[pos]=newWord
-    sentence=newArray.join(' ')
-    res.send({vija:newWord,nueva:newWord})
-    console.log(oldWord) 
-    console.log(newWord)
-    console.log(sentence)
-
-})
-
-router.delete('/palabras/:pos',(req,res)=>{
-    let newWord  = req.body.papa
-    if (isNaN(req.params.pos))return res.status(400).send("Debe ingresar un numero")
-    let newArray=sentence.split(" ")
-    if(parseInt(req.params.pos)<1||parseInt(req.params.pos)>newArray.length) return res.status(400).send("No se puede encontrar la palabra deseada")
-    let pos =parseInt(req.params.pos-1)
-    newArray.splice(pos,1)
-    sentence=newArray.join(' ')
-    res.send(sentence)
-    console.log(sentence)
-
-})
 
 
 
