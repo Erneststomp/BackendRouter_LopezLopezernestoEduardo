@@ -1,0 +1,52 @@
+{{!-- 
+    <a href='/users'>
+        <button type='button'>See all Characters</button>
+    </a> --}}
+    
+
+    {{!-- <form action='/' method='POST' content-type='application/json'>
+        <label>Name</label>
+        <input type='text' name='title' id='title' required/><br>
+        <label>Reward</label>
+        <input type='number' name='price'id='price' required/><br>
+        <label>Species</label>
+        <input type='text' name='especie' id='especie' required/><br>
+        <label>Image URL</label>
+        <input type='text' name='thumbnail' id='thumbnail' required/><br>
+        <button id="sendNewChar" type='submit'>Add Character</button>
+    </form> --}}
+<div style="width: 100%">
+        <container>
+        <label>Name</label>
+        <input type='text' name='title' id='title' required/><br>
+        <label>Reward</label>
+        <input type='number' name='price'id='price' required/><br>
+        <label>Species</label>
+        <input type='text' name='especie' id='especie' required/><br>
+        <label>Image URL</label>
+        <input type='text' name='thumbnail' id='thumbnail' required/><br>
+        <button id="sendNewChar" >Add Character</button>
+    </container>
+
+
+    <div >
+        <div style=" marginRight:'auto',marginLeft:'auto' ">
+            <h2> Productos</h2>
+            <span id="log_products"></span>
+        </div>
+
+
+        <div style="marginRight:'auto',marginLeft:'auto' ">
+            <h2>Forum Chat</h2>
+            <input id="mymessage"><br>
+            <span id="log_chat"></span>
+        </div>
+    </div>
+</div>
+
+    
+
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/socket.io/socket.io.js"></script>    
+    <script src="chat.js"></script>

@@ -4,7 +4,7 @@ const router= Router();
 const Contenedor = new Characters();
 
 router.get('/',(req,res)=>{
-    res.render('welcome.handlebars')
+    res.render('chat.handlebars')
 })
 
 router.get('/users', async(req,res)=>{
