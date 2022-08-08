@@ -3,15 +3,10 @@ import { Characters } from '../public/data/manager.js';
 const router= Router();
 const Contenedor = new Characters();
 
-router.get('/',(req,res)=>{
-    res.render('chat.handlebars')
-})
-
-router.get('/users', async(req,res)=>{
+router.get('/',async(req,res)=>{
     let characters =  await Contenedor.getAll()
-    res.render('users',{characters})
+    res.render('chat.handlebars',{characters})
 })
-
 
 router.post('/', async(req, res) => {
     try {
@@ -21,7 +16,6 @@ router.post('/', async(req, res) => {
             especie: req.body.especie,
             thumbnail: req.body.thumbnail,
         }
-        console.log(newObject)
         await Contenedor.SaveCharacter(newObject)
         res.redirect('/')
     }catch (error) {

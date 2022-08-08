@@ -23,9 +23,11 @@ if(USER===null){
 
   
 let user;
+let messagechat=[]
 const ChatBox = document.getElementById('mymessage')
 
 ChatBox.addEventListener('keyup',evt=>{
+    evt.preventDefault()
     if(evt.key==="Enter"){
         if(ChatBox.value.trim().length>0){
             const currentDate = new Date().toLocaleString()
@@ -42,11 +44,11 @@ socket.on('log',data=>{
         messages=messages+`<p style="color:brown">${message.date}</p> <p style="color:blue; font-weight:bold">${message.user}</p> dice: <p style="font-style: italic;color:green">${message.message}</p><br>`
     })
     log.innerHTML=messages;
+    
 })
 
 
 
-let prod;
 const products={
     titles: document.getElementById('title'),    
     rewards: document.getElementById('price'),   
@@ -66,6 +68,7 @@ function sends(){
 
 
 socket.on('logchar',data=>{
+    evt.preventDefault()
     let logchar=document.getElementById('log_products')
     let lchar=[]
     data.forEach(newchar=>{

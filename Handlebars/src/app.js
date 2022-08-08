@@ -20,12 +20,14 @@ app.use(express.static(__dirname+'/public'));
 
 let log=[]
 io.on('connection',socket=>{
-    console.log('conectado')
     socket.on('message',data=>{
         log.push(data)
         io.emit('log',log)
     })
 })
+
+
+
 
 let logchar=[]
 io.on('connection',socket=>{
