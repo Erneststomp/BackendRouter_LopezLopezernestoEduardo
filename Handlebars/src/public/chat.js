@@ -15,22 +15,26 @@ if(USER===null){
         userName = result.value
         localStorage.setItem('User', JSON.stringify(userName));
         socket.connect();
+        socket.emit('messagereq')
+        socket.emit('Charreq')
     });
 }else{
     userName=USER
     socket.connect();
+    socket.emit('messagereq')
+    socket.emit('Charreq')
 }
 
   
 let user;
 let messagechat=[]
-const ChatBox = document.getElementById('mymessage')
 
-ChatBox.addEventListener('keyup',evt=>{
-    evt.preventDefault()
+const ChatBox = document.getElementById('mymessage')
+ChatBox.addEventListener('keyup',evt=>{ 
     if(evt.key==="Enter"){
         if(ChatBox.value.trim().length>0){
-            const currentDate = new Date().toLocaleString()
+            const currentDate =new Date().toLocaleString()
+            console.log(currentDate)
             socket.emit('message',{user:userName,message:ChatBox.value, date:currentDate})
             ChatBox.value=''
         }
@@ -40,39 +44,45 @@ ChatBox.addEventListener('keyup',evt=>{
 socket.on('log',data=>{
     let log=document.getElementById('log_chat')
     let messages=''
-    data.forEach(message=>{
-        messages=messages+`<p style="color:brown">${message.date}</p> <p style="color:blue; font-weight:bold">${message.user}</p> dice: <p style="font-style: italic;color:green">${message.message}</p><br>`
-    })
+    data=JSON.parse(data)
+    for(let i=0;i<data.length;i++){
+        messages=messages+`<div style="display:inline-flex"><p style="color:brown"> ${data[i].date} </p> <p style="color:blue; font-weight:bold"> ${data[i].user} </p> <p style="font-style: italic;color:green"> ${data[i].message}</p></div><br>`
+    }
+
     log.innerHTML=messages;
     
 })
 
 
 
-const products={
-    titles: document.getElementById('title'),    
-    rewards: document.getElementById('price'),   
-    speciess: document.getElementById('especie'),   
-    thumbnails: document.getElementById('thumbnail')   
-}
-buttonSend=document.getElementById('sendNewChar')
-buttonSend.addEventListener('click',sends)
 
-function sends(){
-    console.log(products)
-    console.log(products.titles.value)
-    if(products.titles.value!==''&&products.rewards.value!==''&&products.speciess.value!==''){
-            socket.emit('newchar',{title:products.titles.value,reward:products.rewards.value,species:products.speciess.value,thumbnail:products.thumbnails.value})
-    }
-}
+const CharBox = document.getElementById('sendNewChar')
 
-
-socket.on('logchar',data=>{
+CharBox.addEventListener('click',evt=>{ 
     evt.preventDefault()
-    let logchar=document.getElementById('log_products')
-    let lchar=[]
-    data.forEach(newchar=>{
-        lchar=lchar+`<p> character: ${newchar.title} </p> Reward: ${newchar.reward} Specie: ${newchar.species} Image: ${newchar.thumbnail}<br>`
-    })
-    logchar.innerHTML=lchar;
+    let titles= document.getElementById('title').value
+    let prices= document.getElementById('price').value
+    let especies= document.getElementById('especie').value
+    let thumbnails= document.getElementById('thumbnail').value
+    console.log(titles)
+    console.log(prices)
+    console.log(especies)
+    console.log(thumbnails)
+    socket.emit('characters',{title:titles,price:prices,especie:especies,thumbnail:thumbnails})
+            titles.value=''
+            prices.value=''
+            especies.value=''
+            thumbnails.value=''
+})
+
+socket.on('logchar',datachar=>{
+    let char=document.getElementById('log_character')
+    let Characterss=''
+    datachar=JSON.parse(datachar)
+    for(let i=0;i<datachar.length;i++){
+        Characterss=Characterss+`<div> ${datachar[i].title} </p> <p> ${datachar[i].price} </p> <p> ${datachar[i].especie}</p> <img src="${datachar[i].thumbnail}"></img></div><br>`
+    }
+
+    char.innerHTML=Characterss;
+    
 })
