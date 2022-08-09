@@ -11,35 +11,35 @@
 		"title": "Morty Smith",
 		"price": 120,
 		"especie": "Human",
-		"thumbnail": " "
+		"thumbnail": "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
 	},
 	{
 		"id": 3,
 		"title": "Summer Smith",
 		"price": 123,
 		"especie": "Human",
-		"thumbnail": " "
+		"thumbnail": "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
 	},
 	{
 		"id": 4,
 		"title": "Beth Smith",
 		"price": 142,
 		"especie": "Human",
-		"thumbnail": " "
+		"thumbnail": "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
 	},
 	{
 		"id": 5,
 		"title": "Jerry Smith",
 		"price": 152,
 		"especie": "Human",
-		"thumbnail": " "
+		"thumbnail": "https://rickandmortyapi.com/api/character/avatar/5.jpeg"
 	},
 	{
 		"id": 6,
 		"title": "Abadango Cluster Princess",
 		"price": 162,
 		"especie": "Alien",
-		"thumbnail": " "
+		"thumbnail": "https://rickandmortyapi.com/api/character/avatar/6.jpeg"
 	},
 	{
 		"id": 7,

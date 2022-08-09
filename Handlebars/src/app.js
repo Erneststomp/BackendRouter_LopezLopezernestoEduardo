@@ -27,8 +27,6 @@ io.on('connection',socket=>{
 })
 
 
-
-
 let logchar=[]
 io.on('connection',socket=>{
     console.log('conectado2')
