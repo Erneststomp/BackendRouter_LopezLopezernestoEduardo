@@ -64,15 +64,15 @@ CharBox.addEventListener('click',evt=>{
     let prices= document.getElementById('price').value
     let especies= document.getElementById('especie').value
     let thumbnails= document.getElementById('thumbnail').value
-    console.log(titles)
-    console.log(prices)
-    console.log(especies)
-    console.log(thumbnails)
+    if(titles!==''&&prices!==''&&especies!==''&&thumbnails!==''){
     socket.emit('characters',{title:titles,price:prices,especie:especies,thumbnail:thumbnails})
-            titles.value=''
-            prices.value=''
-            especies.value=''
-            thumbnails.value=''
+    document.getElementById('title').value=''
+    document.getElementById('price').value=''
+    document.getElementById('especie').value=''
+    document.getElementById('thumbnail').value=''}
+    else{
+        alert('Ingrese todos los datos')
+    }
 })
 
 socket.on('logchar',datachar=>{
